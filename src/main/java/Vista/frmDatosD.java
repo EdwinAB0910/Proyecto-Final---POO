@@ -35,7 +35,7 @@ Gestion obj=new Gestion();
         DefaultTableModel dt=(DefaultTableModel)tabla1.getModel();
         dt.setRowCount(0);
         for(DatosD  x:obj.lisDatosD(cod)){
-            Object d[]={x.getCoddatos(),x.getFecha(),x.getHora(),x.getBus()};
+            Object d[]={x.getCoddatos(),x.getFecha(),x.getHora(),x.getBus(),x.getCosto()};
             dt.addRow(d);
         }
     }
@@ -129,8 +129,9 @@ Gestion obj=new Gestion();
         int f=tabla1.getSelectedRow();
         frmViaje.coddatos=tabla1.getValueAt(f, 0).toString();
         frmViaje.fecha=tabla1.getValueAt(f, 1).toString();
-        frmViaje.costo=Double.parseDouble(tabla1.getValueAt(f, 2).toString());
-        //visualizar alumnos
+        frmViaje.hora=tabla1.getValueAt(f, 2).toString();
+        frmViaje.costo=Double.parseDouble(tabla1.getValueAt(f, 4).toString());
+        //visualizar pasajeros
         frmViaje fr=new frmViaje();
         fr.setLocationRelativeTo(null);//centre el formulario
         fr.show();
