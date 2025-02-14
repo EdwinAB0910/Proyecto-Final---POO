@@ -26,11 +26,11 @@ public class Gestion {
       return lista;  
     }
     
-    //lista de cursos de una especialidad
+    //lista de datosD de un destino
     public List<DatosD> lisDatosD(String id){
       Connection cn=MySQLConexion.getConexion();
       List<DatosD> lista=new ArrayList();
-      String sql="select coddatos,fecha,hora,bus from datosd where codd=?";
+      String sql="select coddatos,fecha,hora,bus,costo from datosd where codd=?";
       try{
       PreparedStatement st=cn.prepareStatement(sql);
       st.setString(1, id);
@@ -41,6 +41,7 @@ public class Gestion {
           d.setFecha(rs.getString(2));
           d.setHora(rs.getString(3));
           d.setBus(rs.getString(4));
+          d.setCosto(rs.getDouble(5));
           lista.add(d);
       }
        }catch(Exception ex){
@@ -48,7 +49,7 @@ public class Gestion {
       }
       return lista;  
     }
-    //lista de alumnos de un curso
+    //lista de pasajeros de datosD
      public List<Pasajero> lisPasajero(String id){
       Connection cn=MySQLConexion.getConexion();
       List<Pasajero> lista=new ArrayList();
@@ -70,7 +71,7 @@ public class Gestion {
       }
       return lista;  
     }
-    //genera matricula
+    //genera nroboleto
      public String genera(){
       Connection cn=MySQLConexion.getConexion();
       String genalu="";
@@ -85,7 +86,7 @@ public class Gestion {
       }
       return genalu;  
     }
-    //grabar alumnos
+    //grabar pasajeros
      public void graba(Pasajero a){
       Connection cn=MySQLConexion.getConexion();
       String sql="insert into pasajero values(?,?,?,?,?)";
