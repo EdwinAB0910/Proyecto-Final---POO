@@ -230,17 +230,17 @@ public class frmViaje extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void rb1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb1ActionPerformed
-       tipo="niño";
+       tipo="1";
        txtPago.setText(""+costo*0.5);
     }//GEN-LAST:event_rb1ActionPerformed
 
     private void rb2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb2ActionPerformed
-         tipo="adulto";
+         tipo="2";
        txtPago.setText(""+costo);
     }//GEN-LAST:event_rb2ActionPerformed
 
     private void rb3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb3ActionPerformed
-         tipo="estudiante";
+         tipo="3";
        txtPago.setText(""+costo*0.7);
     }//GEN-LAST:event_rb3ActionPerformed
 
