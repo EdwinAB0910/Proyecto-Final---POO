@@ -11,6 +11,18 @@ Gestion obj=new Gestion();
         initComponents();
         cargaCombo();
     }
+   //metodo para mostrar cualquier imagen
+       void muestra(String foto){
+    //ubicacion donde esta el proyecto
+        String ruta=new File("src").getAbsolutePath();
+        ruta=ruta+"/main/java/ciudades/"+foto+".jpg";
+        ImageIcon img=new ImageIcon(ruta);//llevar la imagen a memoria
+        //cambiar la escala
+        Image esc=img.getImage().getScaledInstance(lbFoto.getWidth(),
+                lbFoto.getHeight(),Image.SCALE_SMOOTH);
+        //colocar en la etiqueta
+        lbFoto.setIcon(new ImageIcon(esc));
+       }
     void cargaCombo(){
         cbxDest.removeAllItems();
         cbxDest.addItem("--elegir --");
@@ -123,7 +135,14 @@ Gestion obj=new Gestion();
         fr.setLocationRelativeTo(null);//centre el formulario
         fr.show();
     }//GEN-LAST:event_btnVerActionPerformed
-
+   private void cbxfotoActionPerformed(java.awt.event.ActionEvent evt) {                                        
+        try{
+        //obtener del combo el nombre de la mochila y llamar al metodo
+        //para mostrar la imagen
+            String nombre=cbxfoto.getSelectedItem().toString();
+            muestra(nombre);
+        }catch(Exception ex){}
+    } 
     
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
