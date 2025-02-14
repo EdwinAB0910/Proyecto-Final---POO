@@ -5,14 +5,14 @@ import javax.swing.table.DefaultTableModel;
 import modelo.*;
 import control.Gestion;
 public class frmViaje extends javax.swing.JFrame {
-  public static String coddatos,fecha;
+  public static String coddatos,fecha,hora;
   public static double costo;
   Gestion obj=new Gestion();
   String tipo;
     public frmViaje() {
         initComponents();
-        txtcosto.setText(""+costo);
         txtDato.setText(coddatos);
+        txtcosto.setText(""+costo);        
         verpasajero();
     }
        
