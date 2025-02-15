@@ -20,7 +20,7 @@ public class frmViaje extends javax.swing.JFrame {
         DefaultTableModel dt=(DefaultTableModel)tabla3.getModel();
         dt.setRowCount(0);
         for(Pasajero  x:obj.lisPasajero(coddatos)){
-            Object v[]={x.getNroboleto(),x.getNombre(),x.getAsiento(),x.getPago()};
+            Object v[]={x.getNroboleto(),x.getNombre(),x.getTipo(),x.getAsiento(),x.getPago()};
             dt.addRow(v);
         }
     }
