@@ -53,7 +53,7 @@ public class Gestion {
      public List<Pasajero> lisPasajero(String id){
       Connection cn=MySQLConexion.getConexion();
       List<Pasajero> lista=new ArrayList();
-      String sql="select nroboleto,nombre,tipo,pago from pasajero where coddatos=?";
+      String sql="select nroboleto,nombre,tipo,asiento,pago from pasajero where coddatos=?";
       try{
       PreparedStatement st=cn.prepareStatement(sql);
       st.setString(1, id);
@@ -63,7 +63,8 @@ public class Gestion {
           p.setNroboleto(rs.getString(1));
           p.setNombre(rs.getString(2));
           p.setTipo(rs.getString(3));
-          p.setPago(rs.getDouble(4));
+          p.setAsiento(rs.getInt(4));
+          p.setPago(rs.getDouble(5));
           lista.add(p);
       }
        }catch(Exception ex){
