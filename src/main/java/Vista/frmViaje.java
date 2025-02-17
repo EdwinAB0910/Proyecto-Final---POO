@@ -15,6 +15,21 @@ public class frmViaje extends javax.swing.JFrame {
         txtcosto.setText(""+costo);        
         verpasajero();
     }
+    void agregarEventosAsientos() {
+    asientos = new JButton[]{btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btn10,
+                             btn11, btn12, btn13, btn14, btn15, btn16, btn17, btn18, btn19, btn20};
+    for (JButton btn : asientos) {
+        btn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JButton boton = (JButton) e.getSource();
+                asientoSeleccionado = boton.getText(); // Obtener número de asiento
+                txtAsiento.setText(asientoSeleccionado); // Mostrar en la etiqueta
+                boton.setBackground(Color.RED); // Cambiar color a rojo al seleccionar
+            }
+        });
+    }
+    }
        
      void verpasajero(){
         DefaultTableModel dt=(DefaultTableModel)tabla3.getModel();
