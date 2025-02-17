@@ -143,7 +143,13 @@ Gestion obj=new Gestion();
             String nombre=cbxfoto.getSelectedItem().toString();
             muestra(nombre);
         }catch(Exception ex){}
-    } 
+    }
+   private void tabla1MouseClicked(java.awt.event.MouseEvent evt) {                                    
+        //Fila seleccionada
+        int f=tabla1.getSelectedRow();
+        String cod=tabla1.getValueAt(f, 0).toString();
+        muestra(cod);
+    }
     
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
