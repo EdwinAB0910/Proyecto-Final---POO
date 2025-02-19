@@ -148,6 +148,48 @@ public class Gestion {
     }
     return lista;
     }
+
+   //listado de choferes
+    public List<Chofer> listado(){
+        Connection cn=MySQLConexion.getConexion();
+        List<Chofer> lista=new ArrayList();
+        try {
+            String sql="Select codcho,nomcho,feingcho,catcho,salariocho from chofer";
+            PreparedStatement st=cn.prepareStatement(sql);
+            ResultSet rs=st.executeQuery();
+            while (rs.next()) {//leer fila por fila            
+                Chofer p=new Chofer();
+                p.setCodchofer(rs.getString(1));
+                p.setNomchofer(rs.getString(2));
+                p.setFecingreso(rs.getString(3));
+                p.setCategchofer(rs.getString(4));
+                p.setSalariochofer(rs.getDouble(5));
+                lista.add(p);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return lista;
+    }
+    
+    //adicionar nuevo chofer
+    public void adicion(Chofer p){
+        Connection cn=MySQLConexion.getConexion();
+        try {
+            String sql="Insert into chofer values(?,?,?,?,?)";
+            PreparedStatement st=cn.prepareStatement(sql);//preparar sentencias
+            st.setString(1, p.getCodchofer());
+            st.setString(2, p.getNomchofer());
+            st.setString(3, p.getFecingreso());
+            st.setString(4, p.getCategchofer());
+            st.setDouble(5, p.getSalariochofer());
+            
+            //mandar a ejecutar la instruccion
+            st.executeUpdate();//actualizar o ejecutar la instruccion sql
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
      
 }
 
