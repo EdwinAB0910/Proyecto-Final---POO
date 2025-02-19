@@ -22,20 +22,20 @@ Gestion obj=new Gestion();
       }
     }
     
-    void verVia(String id){
-        DefaultTableModel dt=(DefaultTableModel)tabla3.getModel();
-        dt.setRowCount(0);
-        for(DatosD x:obj.lisViajesChofer(id)){
-            Object v[]={x.getCoddatos(),x.getFecha(),x.getNombre(),x.getCosto()};
-            dt.addRow(v);
-        }
-    }
-    
     void muestra(){
         DefaultTableModel dt=(DefaultTableModel)tabla1.getModel();
         dt.setRowCount(0);
         for(Chofer x:obj.listado()){
             Object v[]={x.getCodchofer(),x.getNomchofer(),x.getFecingreso(),x.getCategchofer(),x.getSalariochofer()};
+            dt.addRow(v);
+        }
+    }
+    
+    void verVia(String id){
+        DefaultTableModel dt=(DefaultTableModel)tabla2.getModel();
+        dt.setRowCount(0);
+        for(DatosD x:obj.lisViajesChofer(id)){
+            Object v[]={x.getCoddatos(),x.getFecha(),x.getNombre(),x.getCosto()};
             dt.addRow(v);
         }
     }
@@ -53,7 +53,7 @@ Gestion obj=new Gestion();
         jLabel1 = new javax.swing.JLabel();
         cbxViajescho = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tabla3 = new javax.swing.JTable();
+        tabla2 = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -113,7 +113,7 @@ Gestion obj=new Gestion();
             }
         });
 
-        tabla3.setModel(new javax.swing.table.DefaultTableModel(
+        tabla2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -124,7 +124,7 @@ Gestion obj=new Gestion();
                 "Nro viaje", "Fecha", "Ruta", "Pago"
             }
         ));
-        jScrollPane1.setViewportView(tabla3);
+        jScrollPane1.setViewportView(tabla2);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -382,7 +382,7 @@ Gestion obj=new Gestion();
     private javax.swing.JRadioButton rbnPro;
     private javax.swing.JRadioButton rbnSepro;
     private javax.swing.JTable tabla1;
-    private javax.swing.JTable tabla3;
+    private javax.swing.JTable tabla2;
     private javax.swing.JTextField txtCodcho;
     private javax.swing.JTextField txtFecha;
     private javax.swing.JTextField txtNomcho;
