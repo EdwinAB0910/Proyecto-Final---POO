@@ -1,17 +1,17 @@
 package modelo;
 
 public class Chofer {
-    private int codchofer;
+    private String codchofer;
     private String nomchofer;
     private String fecingreso;
     private String categchofer;
     private double salariochofer;
 
-    public int getCodchofer() {
+    public String getCodchofer() {
         return codchofer;
     }
 
-    public void setCodchofer(int codchofer) {
+    public void setCodchofer(String codchofer) {
         this.codchofer = codchofer;
     }
 
@@ -46,7 +46,5 @@ public class Chofer {
     public void setSalariochofer(double salariochofer) {
         this.salariochofer = salariochofer;
     }
-    
-    
 
 }
