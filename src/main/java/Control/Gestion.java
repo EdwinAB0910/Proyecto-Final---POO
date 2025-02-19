@@ -104,6 +104,50 @@ public class Gestion {
       }   
          
      }
+
+   //seleccion de chofer
+    public List<Chofer> lisCho(){
+     Connection cn=MySQLConexion.getConexion();
+     List<Chofer> lista=new ArrayList();
+     try{
+      String sql="select codcho, nomcho from chofer";   
+      PreparedStatement st=cn.prepareStatement(sql);
+      ResultSet rs=st.executeQuery();
+      while(rs.next()){//leer filax fila
+          Chofer p=new Chofer();
+          p.setCodchofer(rs.getString(1));
+          p.setNomchofer(rs.getString(2));
+          lista.add(p);
+      }
+     }catch(Exception ex){
+         ex.printStackTrace();
+     }
+      return lista;  
+    }
+
+   //lista viajes por chofer
+   public List<DatosD> lisViajesChofer(String id) {
+    Connection cn = MySQLConexion.getConexion();
+    List<DatosD> lista = new ArrayList<>();
+    String sql = "select d.coddatos, d.fecha, des.nombre, d.costo from datosd d " +
+                 "JOIN destino des on d.codd = des.codd where d.codcho = ?";
+    try {
+        PreparedStatement st = cn.prepareStatement(sql);
+        st.setString(1, id);
+        ResultSet rs = st.executeQuery();
+        while (rs.next()) {
+            DatosD d = new DatosD();
+            d.setCoddatos(rs.getString(1));  
+            d.setFecha(rs.getString(2));  
+            d.setNombre(rs.getString(3));   
+            d.setCosto(rs.getDouble(4)); 
+            lista.add(d);
+        }
+    } catch (Exception ex) {
+        ex.printStackTrace();
+    }
+    return lista;
+    }
      
 }
 
