@@ -8,7 +8,7 @@ public class prueba {
    
     public static void main(String[] args) {
         Gestion g=new Gestion();
-        System.out.println("codigo sgte "+g.genera());
+        System.out.println("nroboleto sgte "+g.genera());
     }
     
 }
