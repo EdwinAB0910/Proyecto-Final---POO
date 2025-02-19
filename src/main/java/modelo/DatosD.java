@@ -8,6 +8,7 @@ public class DatosD {
     private String hora;
     private String bus;
     private double costo;
+    private String nombre;
 
 
     public String getFecha() {
@@ -57,5 +58,11 @@ public class DatosD {
     public void setCosto(double costo) {
         this.costo = costo;
     }
-    
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 }
